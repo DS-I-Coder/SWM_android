@@ -10,15 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.duksung.studywithme.R;
 import java.util.ArrayList;
+import java.util.Arrays;
 
-// search 결과화면 recyclerview에 대한 어댑터
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
 
-    private ArrayList<String> mList;
+    private ArrayList<String> mList
+            = new ArrayList<String>(Arrays.asList("토익", "공무원", "중간고사","수능", "대학생", "직장인"
+            ,"취업준비","한국사", "111", "222", "333"));
 
     public SearchAdapter(ArrayList<String> mList) {
 
-        this.mList = mList;
+        //this.mList = mList;
     }
 
     @NonNull
@@ -26,14 +28,14 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View root = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.listitem_search_result, parent, false);
+                .inflate(R.layout.listitem_search_category, parent, false);
 
         return new SearchAdapter.ViewHolder(root);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String str = mList.get(position);
+        String str = mList.get(position);  // 임시로 생성해놓은 카테고리 리스트
         holder.textView.setText(str);
 
     }
@@ -50,7 +52,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tv_result_item);
+            textView = itemView.findViewById(R.id.tv_category_item);
         }
     }
 

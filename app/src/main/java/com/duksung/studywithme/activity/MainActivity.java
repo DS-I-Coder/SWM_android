@@ -25,9 +25,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), SearchActivity.class);
-                overridePendingTransition(R.anim.fade_in, R.anim.not_move);
+                overridePendingTransition(R.anim.fade_in, R.anim.not_move); // 화면전환 애니메이션
                 startActivity(intent);
             }
         });
+
+
     }
 }
