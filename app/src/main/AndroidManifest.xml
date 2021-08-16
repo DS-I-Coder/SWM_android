@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.duksung.studywithme">
 
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.CAPTURE_VIDEO_OUTPUT"
+        tools:ignore="ProtectedPermissions" />
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -11,10 +30,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:hardwareAccelerated="true"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ResultActivity"></activity>
-        <activity android:name=".activity.SearchActivity" />
+
+
+
+
+        <activity android:name=".activity.TestAActivity" />
+
+        <!--초기화면: 로그인, 회원가입-->
+
+        <activity android:name=".activity.EnterChattingRoomActivity" />
+        <activity android:name=".activity.ChattingRoomActivity" />
+
+        <activity android:name=".activity.MyPageActivity" />
+
+        <activity android:name=".activity.RegisterStep2Activity" />
+        <activity android:name=".activity.RegisterStep1Activity" />
+        <activity android:name=".activity.DataChartActivity" />
+
+
         <activity android:name=".activity.SplashActivity" />
+        <activity android:name=".activity.LoginActivity">
+
+        </activity>
+
+
+        <!--메인-->
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +64,56 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
+        <activity android:name=".activity.MakeStudyRoom"
+            android:windowSoftInputMode="adjustResize"/>
+
+
+        <!--검색 및 결과 -->
+        <activity android:name=".activity.SearchActivity" />
+        <activity android:name=".activity.ResultActivity" />
+
+        <!--스터디룸-->
+        <activity android:name=".activity.EnterStudyRoomActivity"/>
+        <activity android:name=".activity.CreateRoomActivity"/>
+        <activity android:name=".activity.StudyRoomActivity" />
+
+
+        <activity
+            android:name=".webrtc.ConnectActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="appr.tc"
+                    android:scheme="https" />
+                <data
+                    android:host="appr.tc"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".webrtc.SettingsActivity"
+            android:label="@string/settings_name" />
+        <activity
+            android:name=".webrtc.CallActivity"
+            android:configChanges="orientation|smallestScreenSize|screenSize|screenLayout"
+            android:label="@string/app_name"
+            android:screenOrientation="fullUser"
+            android:theme="@style/CallActivityTheme" /> <!-- 해당클래스를 알림 메세지 이벤트시 처리하기 위해 서비스로 등록 -->
+        <service android:name=".util.AppFirebaseMessagingService"
+            tools:ignore="Instantiatable">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

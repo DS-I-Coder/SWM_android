@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:background="@drawable/dialog_border"
+    android:backgroundTint="@color/colorPrimaryDark"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_pauseNotice"
+        style="@style/Text15Regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="타이머가 일시정지되었습니다."
+        android:textColor="@color/white" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            style="@style/TextDialog"
+            android:id="@+id/btn_exit"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginEnd="0.5dp"
+            android:text="나가기"
+            android:background="@drawable/dialog_button_border_left" />
+
+        <Button
+            style="@style/TextDialog"
+            android:id="@+id/btn_restart"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="재시작"
+            android:background="@drawable/dialog_button_border_right" />
+    </LinearLayout>
+</LinearLayout>

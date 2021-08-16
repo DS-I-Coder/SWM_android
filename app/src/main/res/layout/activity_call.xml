@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- tools:ignore is needed because lint thinks this can be replaced with a merge. Replacing this
+     with a merge causes the fullscreen SurfaceView not to be centered. -->
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MergeRootFrame"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="622dp"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/notice"
+            style="@style/OutlineRectangle"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text_title"
+            android:text="Notice" />
+
+        <TextView
+            style="@style/Text13Bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:text="컴퓨터공학과 중간고사 STUDY Room" />
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <org.webrtc.SurfaceViewRenderer
+                android:id="@+id/fullscreen_video_view"
+                android:layout_width="400dp"
+                android:layout_height="250dp"
+                android:layout_gravity="top|center" />
+
+            <org.webrtc.SurfaceViewRenderer
+                android:id="@+id/pip_video_view"
+                android:layout_width="400dp"
+                android:layout_height="250dp"
+                android:layout_gravity="bottom|center" />
+
+        </FrameLayout>
+    </LinearLayout>
+
+
+
+
+    <FrameLayout
+        android:id="@+id/call_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+    <FrameLayout
+        android:id="@+id/hud_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</FrameLayout>

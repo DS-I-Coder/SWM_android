@@ -1,12 +1,19 @@
 package com.duksung.studywithme.retrofit;
 
+import com.duksung.studywithme.common.Common;
+import com.duksung.studywithme.model.CategoryModel;
+import com.duksung.studywithme.model.SearchResultModel;
+import com.duksung.studywithme.model.StudyRoomModel;
 import com.duksung.studywithme.model.TestModel;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface RetrofitService {
@@ -16,14 +23,17 @@ public interface RetrofitService {
     Call<TestModel> getUserCheck(@Field("name") String name,
                                  @Field("age") int age,
                                  @Field("address") String address);
-    
-    /* GET 형태
-    @GET("주소")
-    Call<반환모델> 함수이름(@Query("변수") 타입 변수명)
-    */
-//    @GET("")
-//    Call<TestModel> getUser(@Query("name") String name,
-//                            @Query("age") int age,
-//                            @Query("address") String address);
+
+
+    @GET(Common.SearchRoomURL)
+    Call<ArrayList<SearchResultModel>> getSearchResult(@Query("keyword") String keyword);
+
+    @GET(Common.GetCategoryURL)
+    Call<ArrayList<CategoryModel>> getCategory();
+
+    //방 생성할때 방 id 넘겨서 주소 생성...?
+//    @GET(Common.GetStudyRoomURL)
+//    Call<ArrayList<StudyRoomModel>> getStudyRoom(@Path("rId") int rId);
+
 
 }

@@ -5,47 +5,76 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.duksung.studywithme.R;
+import com.duksung.studywithme.model.SearchResultModel;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class ResultAdapter extends RecyclerView.Adapter<ResultAdapter.ViewHolder> {
+    private static final String TAG = "ResultAdapter";
+    private ArrayList<SearchResultModel> mList;
+    private Context context;
 
-    private ArrayList<String> mList
-            = new ArrayList<String>(Arrays.asList("덕성여대 중간고사","컴공 중간고사","중간고사 D-14"));
+    /* 생성자 */
+    public ResultAdapter(ArrayList<SearchResultModel> mList, Context context) {
+        this.context = context;
+        this.mList = mList;
+    }
 
-
+    /* onCreateViewHolder - ViewHolder 객체 생성 */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View root = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.listitem_search_result, parent, false);
+                .inflate(R.layout.listitem_study_room, parent, false);
         return new ResultAdapter.ViewHolder(root);
     }
 
+    /* onBindViewHolder - 생성된 뷰홀더에 데이터 바인딩 */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String str = mList.get(position);  // 임시로 생성해놓은 카테고리 리스트
-        holder.textView.setText(str);
+        String roomTitle = mList.get(position).getRoomTitle();
+        int maxParticipant = mList.get(position).getMaxParticipant();
+        int curParticipant = mList.get(position).getCurParticipant();
+
+        holder.tv_result_item.setText(roomTitle);
+        holder.tv_number_of_participant.setText(curParticipant+"/"+maxParticipant); // "참여인원/최대인원" 형태로 보여줌.
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return mList.size();
     }
 
-
+    /*--------------------------------------------------------------------
+       ViewHolder 클래스
+     *--------------------------------------------------------------------*/
     class ViewHolder extends RecyclerView.ViewHolder{
-        TextView textView;
+        TextView tv_result_item;
+        TextView tv_number_of_participant;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            textView = itemView.findViewById(R.id.tv_result_item);
+
+            tv_result_item = itemView.findViewById(R.id.tv_result_item);
+            tv_number_of_participant = itemView.findViewById(R.id.tv_number_of_participant);
+
+            /* 리스트 항목 이벤트 처리*/
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int pos = getAdapterPosition(); // 누른 리스트 항목의 위치값을 반환.
+
+                    if (pos != RecyclerView.NO_POSITION){ // 간혹 위치값을 -1로 반환할 때가 있어 확인.
+                        Toast.makeText(context, mList.get(pos).getRoomTitle(), Toast.LENGTH_LONG);
+                    }
+                }
+            });
         }
     }
 }

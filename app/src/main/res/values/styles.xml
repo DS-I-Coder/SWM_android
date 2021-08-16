@@ -1,6 +1,6 @@
 <resources>
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
@@ -10,30 +10,56 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="s" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+    </style>
+
     
     <style name="Button">
-        <item name="android:background">@drawable/button_black_border</item>
         <item name="android:textSize">13dp</item>
-        <item name="android:textColor">@color/white</item>
         <item name="android:layout_gravity">center</item>
         <item name="fontFamily">@font/roboto_bold</item>
-        <!--각종 속성 정의 -->
     </style>
 
     <!-- 앱 내에서 사용하는 버튼과 다른 속성은 똑같은데, 배경색과 텍스트컬러만 다른 경우
          parent로 속성을 받아서 일부 수정 or 추가 가능 -->
+    <style name="ButtonBlack" parent="Button">
+        <item name="android:background">@drawable/button_black_border</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
     <style name="ButtonWhite" parent="Button">
         <item name="android:background">@drawable/button_white_border</item>
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="ButtonInActive" parent="Button">
+        <item name="android:background">@drawable/button_inactive_gray_border</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ButtonActive" parent="Button">
+    <item name="android:background">@drawable/button_active_darkblue_border</item>
+    <item name="android:textColor">@color/white</item>
+    </style>
     <style name="OutlineRectangle">
         <item name="android:background">@drawable/outline_rectangle</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_gravity">center</item>
     </style>
-    
+    <style name="OutlineRectangleSmall" parent="OutlineRectangle">
+        <item name="android:paddingStart">7dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:paddingEnd">7dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">34dp</item>
+    </style>
+    <style name="LayoutStartEndPadding">
+        <item name="android:paddingStart">23dp</item>
+        <item name="android:paddingEnd">23dp</item>
+    </style>
     
     <style name="TextMainTitle">
         <item name="android:layout_width">wrap_content</item>
@@ -58,4 +84,52 @@
         <item name="fontFamily">@font/roboto_regular</item>
         <item name="android:textColor">@color/black</item>
     </style>
+    <style name="Text10Light">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">10sp</item>
+        <item name="fontFamily">@font/roboto_light</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="TextDialog">
+        <item name="android:textSize">18sp</item>
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+
+    <style name="TextInputLayoutd" parent="Theme.MaterialComponents.Light">
+
+    </style>
+
+    <style name="ChipOFFMakeRoom">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/chip_off</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="ChipONMakeRoom">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/chip_off</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="CallActivityTheme" parent="android:Theme.Black">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+
+
+
 </resources>

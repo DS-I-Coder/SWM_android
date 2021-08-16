@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ChattingRoomActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_ChatView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <EditText
+        android:id="@+id/et_message_input"
+        style="@style/OutlineRectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="2dp"
+        android:layout_toStartOf="@id/btn_message_send"
+        android:ems="10"
+        android:hint="Enter Message"
+        android:inputType="textPersonName"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_message_send"
+        style="@style/Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/et_message_input"
+        android:layout_alignBottom="@id/et_message_input"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="5dp"
+        android:text="SEND"
+        android:textSize="16sp" />
+</RelativeLayout>

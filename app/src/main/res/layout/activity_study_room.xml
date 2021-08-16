@@ -4,51 +4,152 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity"
-
     android:paddingStart="15dp"
+    android:paddingTop="26dp"
     android:paddingEnd="15dp"
-    android:paddingTop="26dp">
+    tools:context=".activity.StudyRoomActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/notice"
-            style="@style/OutlineRectangle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_title"
-            android:text="Notice" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-        <TextView
-            style="@style/Text13Bold"
-            android:text="컴퓨터공학과 중간고사 STUDY Room"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="7dp"
+                android:background="@drawable/ic_room_exit" />
 
-        <!-- 영상처리된 화면 -->
+            <TextView
+                android:id="@+id/notice"
+                style="@style/OutlineRectangle"
+                android:paddingTop="13dp"
+                android:paddingBottom="13dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="Notice" />
 
-        <fragment
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/Text13Bold"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="컴퓨터공학과 중간고사 STUDY Room" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/cameraLayout"
             android:layout_width="match_parent"
             android:layout_height="536dp"
-            android:layout_below="@+id/et_searchBar"
             android:layout_marginBottom="10dp"
+            android:background="@color/colorBtnInactive"
             tools:layout="@layout/fragment_camera_view" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <!--<TextView
+                android:id="@+id/tv_stopWatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00:00"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>-->
+            <Chronometer
+                android:id="@+id/tv_stopWatch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+
+            <ImageView
+                android:id="@+id/img_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/onoffbutton"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/ic_chat"/>
+
+            <Switch
+                android:id="@+id/onoffbutton"
+                style="@style/Text15Regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="On / Off"
+                android:textColor="#000000" />
+        </RelativeLayout>
         <!-- 영상처리된 화면 -->
 
-        <Switch
-            android:id="@+id/onoffbutton"
-            android:layout_width="103dp"
-            android:layout_height="33dp"
-            android:text="On / Off"
-            android:textColor="#000000"
-            style="@style/Text15Regular"
-            android:layout_marginLeft="285dp"/>
+        <!-- 영상처리된 화면 -->
 
 
     </LinearLayout>
 
+        <RelativeLayout
+            android:id="@+id/chattingLayout"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="#bbaaaaaa"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="70dp"
+            android:visibility="invisible"
+            tools:visibility="visible">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_ChatView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <EditText
+                android:id="@+id/et_message_input"
+                style="@style/OutlineRectangle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginBottom="2dp"
+                android:layout_toStartOf="@id/btn_message_send"
+                android:ems="10"
+                android:hint="Enter Message"
+                android:inputType="textPersonName"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/btn_message_send"
+                style="@style/Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@id/et_message_input"
+                android:layout_alignBottom="@id/et_message_input"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginBottom="5dp"
+                android:text="SEND"
+                android:textSize="16sp" />
+        </RelativeLayout>
+    </FrameLayout>
 </RelativeLayout>

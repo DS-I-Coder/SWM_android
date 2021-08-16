@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SearchActivity"
+    tools:context=".activity.LoginActivity"
     android:paddingStart="15dp"
     android:paddingEnd="15dp"
     android:paddingTop="26dp">
@@ -40,10 +40,19 @@
         android:layout_marginBottom="23dp" />
 
     <Button
-        android:id="@+id/Button_login"
+        android:id="@+id/btn_login"
         style="@style/Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/et_login_Password"
+        android:layout_marginBottom="23dp"
         android:text="LOG IN" />
+
+    <TextView
+        android:id="@+id/tv_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_login"
+        android:layout_centerHorizontal="true"
+        android:text="sign up" />
 </RelativeLayout>

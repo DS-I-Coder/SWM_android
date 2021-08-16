@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SearchActivity"
+    tools:context=".activity.RegisterStep2Activity"
     android:paddingStart="15dp"
     android:paddingEnd="15dp"
     android:paddingTop="26dp">
@@ -29,7 +29,7 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/button_register_signup"
+        android:id="@+id/btn_register_signup"
         style="@style/Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,6 +41,6 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button_register_signup"
+        android:layout_below="@id/btn_register_signup"
         android:text="By signing up, you agree to Photo’s Terms of Service and Privacy Policy." />
 </RelativeLayout>

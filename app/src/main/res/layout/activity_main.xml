@@ -1,65 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity"
-
+    android:orientation="vertical"
     android:paddingStart="15dp"
+    android:paddingTop="26dp"
     android:paddingEnd="15dp"
-    android:paddingTop="26dp">
+    tools:context=".activity.MainActivity">
 
-    <TextView
-        android:id="@+id/text_title"
-        style="@style/TextMainTitle"
-        android:text="Study with Me!" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/image_circle"
-        android:layout_marginEnd="8dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/text_title"/>
-
-    <TextView
-        android:id="@+id/tv_searchBar"
-        style="@style/OutlineRectangle"
+    <RelativeLayout
+        android:id="@+id/layout_mainTop"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginBottom="19dp"
-        android:layout_below="@+id/text_title"
-        android:hint="Search all category" />
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/text_title"
+            style="@style/TextMainTitle"
+            android:text="StudyWithMe!"
+            android:textSize="30sp"/>
+
+        <ImageView
+            android:id="@+id/img_addRoom"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/ic_add"
+            android:layout_toStartOf="@id/img_profile"
+            android:layout_alignBottom="@id/text_title"/>
+
+        <ImageView
+            android:id="@+id/img_profile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignBottom="@id/text_title"
+            android:background="@drawable/ic_account" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_below="@id/tv_searchBar">
+        android:orientation="vertical">
 
         <TextView
-            style="@style/Text13Bold"
-            android:text="BEST MEMEBER"
-            />
-
-        <ImageView
+            android:id="@+id/tv_searchBar"
+            style="@style/OutlineRectangle"
             android:layout_width="match_parent"
-            android:layout_height="131dp"
-            android:backgroundTint="#CC9C8F"/>
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layout_mainTop"
+            android:layout_marginTop="18dp"
+            android:layout_marginBottom="19dp"
+            android:hint="Search all category" />
 
-        <TextView
-            style="@style/Text13Bold"
-            android:text="STUDY ROOM" />
-
-        <ImageView
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:backgroundTint="#CC9C8F"/>
+            android:layout_height="wrap_content">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/tv_searchBar"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/Text13Bold"
+                        android:text="BEST MEMEBER" />
+
+                    <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/main_viewpager"
+                        android:layout_width="match_parent"
+                        android:layout_height="131dp"
+                        android:clipToPadding="false"
+                        android:overScrollMode="always" />
+
+                    <TextView
+                        style="@style/Text13Bold"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="STUDY ROOM" /> <!-- 3-->
+
+
+                    <GridLayout
+                        android:id="@+id/gridLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="1"
+                        android:orientation="horizontal" />
+                </LinearLayout>
+            </ScrollView>
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/floatingBtn_userInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/chart2"
+                android:src="@drawable/ic_timer" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>
-
-    <!--floating button? -->
-
-
-</RelativeLayout>
+</LinearLayout>

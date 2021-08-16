@@ -28,9 +28,11 @@
         android:hint="Search all Study Room"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_resultList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/outline_rectangle"
-        android:layout_below="@id/et_searchBar"/>
+        android:layout_below="@id/et_searchBar"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </RelativeLayout>

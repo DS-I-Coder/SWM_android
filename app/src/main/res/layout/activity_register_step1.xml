@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/LayoutStartEndPadding"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SearchActivity"
-    android:paddingStart="15dp"
-    android:paddingEnd="15dp"
-    android:paddingTop="26dp">
+    android:orientation="vertical"
+    tools:context=".activity.RegisterStep1Activity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="29dp">
 
-    <TextView
-        android:id="@+id/text_registerStep1Title"
-        style="@style/TextMainTitle"
-        android:layout_marginBottom="23dp"
-        android:text="Register" />
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+
+            android:background="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/tv_mypage_title"
+            style="@style/TextMainTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Register" />
+    </RelativeLayout>
 
     <EditText
-        android:id="@+id/text_registerId"
+        android:id="@+id/et_registerId"
         style="@style/OutlineRectangle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_registerStep1Title"
+        android:layout_below="@id/tv_mypage_title"
         android:layout_marginBottom="23dp"
         android:ems="10"
         android:hint="email"
@@ -33,17 +47,59 @@
         style="@style/OutlineRectangle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/text_registerId"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="password"
         android:layout_marginBottom="23dp" />
 
+    <EditText
+        android:id="@+id/et_checkRegisterPassword"
+        style="@style/OutlineRectangle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="password confirm"
+        android:layout_marginBottom="23dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/et_nickname"
+            style="@style/OutlineRectangle"
+            android:layout_width="228dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="닉네임"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btn_nickname"
+            style="@style/Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="중복확인" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_alertExistNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:textColor="#CD2A2A"
+        android:text="이미 사용 중인 닉네임입니다."
+        android:visibility="invisible"/>
+
     <Button
-        android:id="@+id/Button_registerNext"
+        android:id="@+id/btn_register"
         style="@style/Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/et_registerPassword"
-        android:text="NEXT" />
-</RelativeLayout>
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/et_nickname"
+        android:text="REGISTER" />
+</LinearLayout>
